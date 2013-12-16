@@ -7,5 +7,6 @@ module.exports = function(app){
 
   //home route
   app.get('/check-in', home.checkIn);
+  app.get('/check-out', home.checkOut);
 
 };

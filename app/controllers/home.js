@@ -13,11 +13,11 @@ exports.index = function(req, res){
 
 
 exports.checkIn = function(req, res){
-  Article.find(function(err, articles){
-    if(err) throw new Error(err);
-    res.render('home/index', {
-      title: 'Generator-Express MVC',
-      articles: articles
-    });
-  });
+  console.log('Checked in');
+
+};
+
+exports.checkOut = function(req, res){
+  console.log('Checked out');
+
 };
