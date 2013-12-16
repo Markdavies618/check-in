@@ -6,7 +6,7 @@ module.exports = function(app){
 
 
   //home route
-  app.get('/check-in', home.checkIn);
-  app.get('/check-out', home.checkOut);
+  app.post('/check-in', home.checkIn);
+  app.post('/check-out', home.checkOut);
 
 };
