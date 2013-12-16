@@ -6,8 +6,7 @@ module.exports = function(app){
    
     res.render('home/index', {
       title: 'Generator-Express MVC',
-      checkIns : app.checkins,
-      articles: articles
+      checkIns : app.checkins
     });
   });
   //home route
