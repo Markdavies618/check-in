@@ -6,7 +6,14 @@ module.exports = function(app){
 
 
   //home route
-  app.post('/check-in', home.checkIn);
-  app.post('/check-out', home.checkOut);
+  app.post('/check-in', function(req, res){
+    app.checkins = app.checkins + 1;
+  console.log('Checked in, Check ins :  ' + app.checkins);
+  }
+  app.post('/check-out', function(req, res){
+        app.checkins = app.checkins - 1;
+
+  console.log('Checked out, Check ins :  ' + app.checkins);
+  }
 
 };

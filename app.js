@@ -1,8 +1,7 @@
 var express = require('express'),
   mongoose = require('mongoose'),
   fs = require('fs'),
-  config = require('./config/config');
-
+  config = require('./config/config')
 mongoose.connect(config.db);
 var db = mongoose.connection;
 db.on('error', function () {
@@ -18,7 +17,7 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 
 var app = express();
 app.set('port', process.env.PORT || 4016);
-
+app.checkins = 0;
 require('./config/express')(app, config);
 require('./config/routes')(app);
 
