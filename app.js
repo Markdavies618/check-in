@@ -17,8 +17,11 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 });
 
 var app = express();
+app.set('port', process.env.PORT || 4016);
 
 require('./config/express')(app, config);
 require('./config/routes')(app);
 
-app.listen(config.port);
+app.listen(app.get('port'), function () {
+  console.log('Server started on port: ' + app.get('port')  )
+})

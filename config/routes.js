@@ -4,4 +4,8 @@ module.exports = function(app){
 	var home = require('../app/controllers/home');
 	app.get('/', home.index);
 
+
+  //home route
+  app.get('/check-in', home.checkIn);
+
 };

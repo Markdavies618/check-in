@@ -26,7 +26,7 @@ var config = {
     app: {
       name: 'whosin'
     },
-    port: 3000,
+    port: 4016,
     db: 'mongodb://localhost/whosin-production'
   }
 };
