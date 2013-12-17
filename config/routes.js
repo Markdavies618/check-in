@@ -15,25 +15,21 @@ module.exports = function(app){
     console.log('Checked in, Check ins :  ' + app.checkins)
     res.send(200)
 
-    io.sockets.on('connection', function (socket) {
-      socket.emit('checkIns', { number: app.checkins })
-    });
-
   })
   
 
 
 
 
-    app.post('/check-out', function(req, res){
-      if (app.checkins > 0 ){
-        app.checkins = app.checkins - 1;
-      }
-      res.send(200)
+  app.post('/check-out', function(req, res){
+    if (app.checkins > 0 ){
+      app.checkins = app.checkins - 1;
+    }
+    res.send(200)
 
-        socket.emit('checkIns', { number: app.checkins })
-      console.log('Checked out, Check ins :  ' + app.checkins);
-    });
+      socket.emit('checkIns', { number: app.checkins })
+    console.log('Checked out, Check ins :  ' + app.checkins);
+  });
 
 };
 
