@@ -3,9 +3,10 @@ var io = require('socket.io').listen(80);
 
 module.exports = function(app){
 
-	//home route
-	var home = require('../app/controllers/home');
-	app.get('/', function (req, res) {
+    io.sockets.on('connection', function (socket) {
+  //home route
+  var home = require('../app/controllers/home');
+  app.get('/', function (req, res) {
     res.render('home/index', {
       title: 'Synth Whos In',
       checkIns : app.checkins
@@ -32,10 +33,11 @@ module.exports = function(app){
     }
     res.send(200)
 
-    io.sockets.on('connection', function (socket) {
       socket.emit('checkIns', { number: app.checkins })
-    });
     console.log('Checked out, Check ins :  ' + app.checkins);
   });
 
+    });
 };
+
+
